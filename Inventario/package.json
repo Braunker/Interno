@@ -1,0 +1,11 @@
+{
+  "name": "inventario-ventadirecta",
+  "version": "1.0.0",
+  "description": "App para obtener el inventario de articulos de venta directa en SAP y actualizar en Shopify y Google Merchant",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jaime Okhuysen",
+  "license": "ISC"
+}
