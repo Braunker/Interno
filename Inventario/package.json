@@ -12,8 +12,13 @@
     "cookie": "^0.4.0",
     "dotenv": "^8.0.0",
     "express": "^4.17.1",
+    "express-shopify-webhooks": "^1.1.0",
+    "mysql": "^2.17.1",
+    "ngrok": "^3.2.2",
     "nonce": "^1.0.4",
     "request": "^2.88.0",
-    "request-promise": "^4.2.4"
+    "request-promise": "^4.2.4",
+    "require": "^2.4.20",
+    "shopify-api-node": "^2.20.1"
   }
 }
