@@ -2,7 +2,7 @@
   "name": "inventario-ventadirecta",
   "version": "1.0.0",
   "description": "App para obtener el inventario de articulos de venta directa en SAP y actualizar en Shopify y Google Merchant",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -13,9 +13,11 @@
     "dotenv": "^8.0.0",
     "express": "^4.17.1",
     "express-shopify-webhooks": "^1.1.0",
+    "mongoose": "^5.6.5",
     "mysql": "^2.17.1",
-    "ngrok": "^3.2.2",
+    "ngrok": "^3.2.5",
     "nonce": "^1.0.4",
+    "path": "^0.12.7",
     "request": "^2.88.0",
     "request-promise": "^4.2.4",
     "require": "^2.4.20",
