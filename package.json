@@ -9,6 +9,7 @@
   "author": "Jaime Okhuysen",
   "license": "ISC",
   "dependencies": {
+    "aws-sdk": "^2.549.0",
     "cookie": "^0.4.0",
     "dotenv": "^8.0.0",
     "express": "^4.17.1",
