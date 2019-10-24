@@ -16,11 +16,9 @@ exports.updateAllInventory= (req,res)=>{
   let i =0;
 
   req.body.articles.forEach((element)=>{ //update inventory of each item in req.body
-
     Article.updateOne({sku:element.sku},{$set:{available:element.available, inventory_item_id:element.inventory_item_id,
       variant_id:element.variant_id}},{upsert:true},(err,response)=>{
         if(err){
-
         }
         else{
           shopify.updateInventory(element).then((response)=>{
@@ -32,6 +30,7 @@ exports.updateAllInventory= (req,res)=>{
               res.send("Succesfully updated inventory of (success/sent): "+articleArray.length+"/"+req.body.articles.length);
             }
           }).catch((err)=>{
+            console.log(err);
             i = i + 1;
             if(i == req.body.articles.length){
               res.send("Succesfully updated inventory of (success/sent): "+articleArray.length+"/"+req.body.articles.length);
@@ -54,7 +53,7 @@ exports.updateAllPrices= (req,res)=>{
     Article.updateOne({sku:element.sku},{$set:{price:element.price, inventory_item_id:element.inventory_item_id, variant_id:element.variant_id}}
       ,{upsert:true},(err,response)=>{
         if(err){
-
+          console.log(err);
         }
         else{
           shopify.updatePrice(element).then(()=>{
@@ -70,7 +69,7 @@ exports.updateAllPrices= (req,res)=>{
             if(i == req.body.variant.length){
               res.send("Succesfully updated prices of (success/sent): "+articleArray.length+"/"+req.body.variant.length);
             }
-            console.log(err);
+            
           });
         }
     });
