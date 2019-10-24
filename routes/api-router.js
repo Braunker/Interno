@@ -3,6 +3,7 @@ const articleController = require('../controllers/articleController');
 
 apiRouter.get('/',(req,res)=>{
   res.send("hello world");
+  console.log("hello world");
 });
 apiRouter.get('/deleteInventory', articleController.deleteInventory);
 apiRouter.post('/updateAllInventory', articleController.updateAllInventory);
