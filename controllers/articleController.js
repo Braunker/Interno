@@ -16,6 +16,7 @@ exports.updateAllInventory= (req,res)=>{
   let i =0;
 
   req.body.articles.forEach((element)=>{ //update inventory of each item in req.body
+    console.log(element);
     Article.updateOne({sku:element.sku},{$set:{available:element.available, inventory_item_id:element.inventory_item_id,
       variant_id:element.variant_id}},{upsert:true},(err,response)=>{
         if(err){
@@ -50,6 +51,7 @@ exports.updateAllPrices= (req,res)=>{
 
 
   req.body.variant.forEach((element)=>{ //update prices of each item in req.body
+    console.log(element);
     Article.updateOne({sku:element.sku},{$set:{price:element.price, inventory_item_id:element.inventory_item_id, variant_id:element.variant_id}}
       ,{upsert:true},(err,response)=>{
         if(err){
@@ -69,7 +71,7 @@ exports.updateAllPrices= (req,res)=>{
             if(i == req.body.variant.length){
               res.send("Succesfully updated prices of (success/sent): "+articleArray.length+"/"+req.body.variant.length);
             }
-            
+
           });
         }
     });
