@@ -6,6 +6,7 @@ var ArticleSchema   = new Schema({
     price: {type:Number, default:0},
     variant_id: {type: Number, required:true},
     inventory_item_id: {type: Number, required:true},
+    product_id: {type: Number, required:true},
     available: {type:Number, default:0}
 });
 

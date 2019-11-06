@@ -23,7 +23,6 @@ module.exports = {
     	})
     });
   },
-
   updatePrice: (element)=>{
     return new Promise((resolve,reject)=>{
       var inventoryItemUrl = 'https://'+process.env.SHOPIFY_API_KEY+':'+process.env.SHOPIFY_PASSWORD+'@'+process.env.SHOPIFY_SHOPNAME
@@ -35,5 +34,47 @@ module.exports = {
         resolve(res);
     	});
     });
+  },
+  updateAvailableTag: (element)=>{
+    return new Promise((resolve,reject)=>{
+      var productGetTagsUrl ='https://'+process.env.SHOPIFY_API_KEY+':'+process.env.SHOPIFY_PASSWORD+'@'+process.env.SHOPIFY_SHOPNAME
+      +'.myshopify.com/admin/api/'+process.env.SHOPIFY_API_VERSION+'/products/'+element.product_id+'.json?fields=tags';
+
+      var productPutTagsUrl = 'https://'+process.env.SHOPIFY_API_KEY+':'+process.env.SHOPIFY_PASSWORD+'@'+process.env.SHOPIFY_SHOPNAME
+      +'.myshopify.com/admin/api/'+process.env.SHOPIFY_API_VERSION+'/products/'+element.product_id+'.json';
+      var tags="";
+
+      request.get({url:productGetTagsUrl}, (error,response,body)=>{
+        tags = body.product.tags;
+        if(element.available>0){
+          if(tags.includes(", available")){
+            resolve();
+          }
+          else{
+            tags=tags+", available";
+            request.put({url:productPutTagsUrl, form:{"product":{"id":element.product_id,"tags":}}},function(err,res,body){
+              if(err){
+                reject(err);
+              }
+              resolve(res);
+            })
+          }
+        }
+        else{
+          if(tags.includes(", available")){
+            tags=tags.replace(", available","");
+            request.put({url:productPutTagsUrl, form:{"product":{"id":element.product_id,"tags":tags}}},function(err,res,body){
+              if(err){
+                reject(err);
+              }
+              resolve(res);
+            })
+          }
+          else{
+            resolve();
+          }
+        }
+      })
+    })
   }
 }
