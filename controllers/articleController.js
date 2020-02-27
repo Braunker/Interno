@@ -24,26 +24,15 @@ exports.updateAllInventory= (req,res)=>{
         }
         else{
           shopify.updateInventory(element).then((response)=>{
-            shopify.updateAvailableTag(element).then((response)=>{
-              i = i + 1;
-
-              articleArray.push(element); //if succesfully updated in shopify, add article sku to array of response
-              //send response if we are through with the articles sent by request
-              if(i == req.body.articles.length){
-                res.send("Succesfully updated inventory of (success/sent): "+articleArray.length+"/"+req.body.articles.length);
-              }
-            }).catch((err)=>{
-              console.log(err);
-            });
-          }).catch((err)=>{
-            console.log(err);
             i = i + 1;
+
+            articleArray.push(element); //if succesfully updated in shopify, add article sku to array of response
+            //send response if we are through with the articles sent by request
             if(i == req.body.articles.length){
               res.send("Succesfully updated inventory of (success/sent): "+articleArray.length+"/"+req.body.articles.length);
             }
-
+          }).catch((err)=>{
             console.log(err);
-
           });
         }
     });
@@ -51,7 +40,6 @@ exports.updateAllInventory= (req,res)=>{
 }
 
 exports.updateAllPrices= (req,res)=>{
-  let articleArray = [];
   let i =0;
 
 
@@ -88,10 +76,7 @@ exports.updateOneInventory= (req,res)=>{
       res.send("article with inventoryId"+req.body.inventory_item_id+" not in our DB");
     }
     else{
-      Article.find({inventory_item_id:req.body.inventory_item_id},(err,element)=>{)
-      shopify.updateTag(element).then((response)=>{
-        res.send("article with inventoryId"+req.body.inventory_item_id+" updated");
-      });
-    }
-  });
+      res.send("article with inventoryId"+req.body.inventory_item_id+" updated");
+    };
+  })
 }

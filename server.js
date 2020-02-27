@@ -6,6 +6,8 @@ var mysql = require('mysql');
 var mongoose   = require('mongoose');
 mongoose.connect('mongodb://braunker:123Braunker@ds139370.mlab.com:39370/braunker', {useNewUrlParser:true});
 
+
+
 var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true })); // bodyParser, this will let us get the data from a POST
 app.use(bodyParser.json());
