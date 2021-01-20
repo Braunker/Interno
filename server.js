@@ -4,7 +4,7 @@ var path = require('path');
 var app = express();
 var mysql = require('mysql');
 var mongoose   = require('mongoose');
-mongoose.connect('mongodb://braunker:123Braunker@ds139370.mlab.com:39370/braunker', {useNewUrlParser:true});
+mongoose.connect('mongodb+srv://user1:abcd@cluster0.4chpf.mongodb.net/articulos?retryWrites=true&w=majority', { useNewUrlParser: true},{useCreateIndex:true},);
 
 
 
