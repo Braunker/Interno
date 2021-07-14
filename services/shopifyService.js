@@ -35,6 +35,7 @@ module.exports = {
       throttle(function(){
         request.put({url:inventoryItemUrl,form:{"variant":{"id":element.variant_id,"price":element.price}}}, function (err, res, body) {
       		if(err){
+            console.log(err);
             reject(err);
           }
           resolve(res);
