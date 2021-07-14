@@ -20,6 +20,7 @@ module.exports = {
         request.post({url:inventoryLevelUrl,form:{'location_id': process.env.SHOPIFY_LOCATION_ID, 'inventory_item_id': element.inventory_item_id,
         'available':element.available}}, function (err, res, body) {
       		if(err){
+            console.log(err);
             reject(err);
           }
           resolve(res);
