@@ -34,6 +34,7 @@ module.exports = {
       var inventoryItemUrl = 'https://'+process.env.SHOPIFY_API_KEY+':'+process.env.SHOPIFY_PASSWORD+'@'+process.env.SHOPIFY_SHOPNAME
       +'.myshopify.com/admin/api/'+process.env.SHOPIFY_API_VERSION+'/variants/'+element.variant_id+'.json';
       throttle(function(){
+        console.log('attempting to post price');
         request.put({url:inventoryItemUrl,form:{"variant":{"id":element.variant_id,"price":element.price}}}, function (err, res, body) {
       		if(err){
             console.log(err);
