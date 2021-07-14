@@ -23,7 +23,6 @@ module.exports = {
             console.log(err);
             reject(err);
           }
-          console.log(res);
           resolve(res);
       	});
       });
@@ -39,7 +38,6 @@ module.exports = {
             console.log(err);
             reject(err);
           }
-          console.log(res);
           resolve(res);
       	});
       });
