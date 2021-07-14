@@ -17,6 +17,8 @@ module.exports = {
       +'.myshopify.com/admin/api/'+process.env.SHOPIFY_API_VERSION+'/inventory_levels/set.json';
 
       throttle(function(){
+        console.log({url:inventoryLevelUrl,form:{'location_id': process.env.SHOPIFY_LOCATION_ID, 'inventory_item_id': element.inventory_item_id,
+        'available':element.available});
         request.post({url:inventoryLevelUrl,form:{'location_id': process.env.SHOPIFY_LOCATION_ID, 'inventory_item_id': element.inventory_item_id,
         'available':element.available}}, function (err, res, body) {
       		if(err){
