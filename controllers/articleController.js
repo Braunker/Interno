@@ -76,6 +76,7 @@ exports.updateOneInventory= (req,res)=>{
       res.send("article with inventoryId"+req.body.inventory_item_id+" not in our DB");
     }
     else{
+      console.log("article with inventoryId"+req.body.inventory_item_id+" updated");
       res.send("article with inventoryId"+req.body.inventory_item_id+" updated");
     };
   })
