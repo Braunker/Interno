@@ -62,7 +62,6 @@ exports.updateAllPrices= (req,res)=>{
           }).catch((err)=>{
             i = i + 1;
             if(i == req.body.variant.length){
-              res.send("Succesfully updated prices of (success/sent): "+articleArray.length+"/"+req.body.variant.length);
             }
           });
         }
