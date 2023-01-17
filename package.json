@@ -22,7 +22,7 @@
     "path": "^0.12.7",
     "request": "^2.88.0",
     "require": "^2.4.20",
-    "shopify-api-node": "^2.20.1",
+    "shopify-api-node": "^3.12.1",
     "throttled-queue": "^1.0.7"
   }
 }
