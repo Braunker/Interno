@@ -4,7 +4,9 @@ var path = require('path');
 var app = express();
 var mysql = require('mysql');
 var mongoose   = require('mongoose');
-mongoose.connect('mongodb+srv://braunker:braunker51@cluster0.4chpf.mongodb.net/articulos?retryWrites=true&w=majority', {useNewUrlParser:true}, { useUnifiedTopology: true });
+mongoose.connect('mongodb+srv://braunker:braunker51@cluster0.4chpf.mongodb.net/articulos?retryWrites=true&w=majority', { useNewUrlParser: true},{useCreateIndex:true},{ useUnifiedTopology: true });
+
+
 
 var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true })); // bodyParser, this will let us get the data from a POST
