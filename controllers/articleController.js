@@ -21,6 +21,7 @@ exports.updateAllInventory= (req,res)=>{
     Article.updateOne({sku:element.sku},{$set:{available:element.available, inventory_item_id:element.inventory_item_id,
       variant_id:element.variant_id, product_id:element.product_id}},{upsert:true},(err,response)=>{
         if(err){
+          console.log(err);
         }
         else{
           shopify.updateInventory(element).then((response)=>{
